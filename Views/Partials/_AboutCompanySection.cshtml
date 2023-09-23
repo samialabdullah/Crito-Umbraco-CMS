@@ -1,0 +1,36 @@
+﻿@using Umbraco.Cms.Core.Models
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+
+<section class="about-section">
+    <div class="container">
+        
+            <div class="image-column">
+                @{
+                    var aboutcompanyImage = Model.Value<MediaWithCrops>("aboutCompanyImage");
+                    if (aboutcompanyImage != null)
+                    {
+                        <img src="@aboutcompanyImage.MediaUrl()" alt="@Model.Value("aboutCompanySectionTitle")">
+                    }
+                <div class="image-quote">
+                    <h4>Samantha Brown, <span>Founder</span></h4>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
+                </div>
+                }
+            </div>
+
+        
+        <div class="content-column">
+            <div class="section-title">@Model.Value("aboutCompanySectionTitle")</div>
+            <h2>@Model.Value("aboutCompanyHeading")</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam officiis quas assumenda esse obcaecati? Ex esse error voluptates iure vel totam eos.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis esse quasi incidunt adipisci accusantium libero provident voluptate amet.</p>
+            <div class="about-links">
+                <a class="btn-dark" href="@Model.Value("aboutCompanyButtonUrl")">@Model.Value("aboutCompanyButtonText") <i class="fa-solid fa-arrow-up-right"></i></a>
+                <a class="btn-white-play" href="introvideo.html"><i class="fa-regular fa-circle-play mr-2"></i>Intro Video</a>
+            </div>
+        </div>
+    </div>
+</section>
