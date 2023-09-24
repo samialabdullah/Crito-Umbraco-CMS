@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+        @{
+        
+        	var selection = Umbraco?.Content(Guid.Parse("7d6ff543-667d-4e48-b283-acb865060866"))?
+            .ChildrenOfType("Pages")?
+            .Where(x => x.IsVisible())
+            .OrderByDescending(x => x.CreateDate).Take(4);
+        }
+
+    <section class="project-section">
+        <div class="container">
+            <div class="section-title">@Model.Value("projectAndCaseStudiesSectionTitle")</div>
+            <h2>@Model.Value("projectAndCaseStudiesSectionHeading")</h2>
+            <div class="project-grid">
+
+            @if(selection != null) 
+            {
+              	@foreach (var item in selection)
+              	
+            	{
+            	   var url = item.Url();
+            	   var image = item.Value<IPublishedContent>("newsImage");
+            	   var title = item.Name();
+            	
+    	            <a href="@url" class="project">
+                        <img src="@image?.Url()" alt="">
+                        <h5>@title</h5>
+                        <p>Read More <i class="fa-solid fa-arrow-up-right"></i></p>
+                    </a>
+            	}
+            }
+    
+            </div>
+            <a class="all-projects-link btn-dark" href="@Model.Value("projectAndCaseStudiesBottonUrl")">@Model.Value("projectAndCaseStudiesBottonText") <i class="fa-solid fa-arrow-up-right"></i></a>
+        </div>
+    </section>
