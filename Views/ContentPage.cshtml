@@ -1,8 +1,11 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Crito.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "LayoutWithBreadcrumb.cshtml";
+    Layout = "LayoutWithBreadcrumb.cshtml";
+
+    var contactForm = new ContactForm();
 }
 
 <section class="contactinfo-section">
@@ -37,20 +40,20 @@
 <section class="contactform-section">
     <div class="container">
         <h2>Leave us a message for any information.</h2>
-        <form asp-controller="" asp-action="" method="post" noValidate>
-            <div asp-validation-summary="ModelOnly"></div>
+
+        @using (Html.BeginUmbracoForm("Index", "Contacts", FormMethod.Post))
+        {
+
+            <div asp-validation-summary="All"></div>
             
-            
-            
-            
-            <input asp-for="" type="text" placeholder="Name*">
-            <input asp-for="" type="email" placeholder="Email*">
-            <textarea asp-for="" placeholder="Your Message*"></textarea>
+            <input asp-for="@contactForm.Name" type="text" placeholder="Name*">
+            <input asp-for="@contactForm.Email" type="email" placeholder="Email*">
+            <textarea asp-for="@contactForm.Message" placeholder="Your Message*"></textarea>
             
             <div class="d-grid">
                 <button type="submit" class="btn-theme">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
             </div>
-        </form>
+        }
     </div>
 </section>
 
