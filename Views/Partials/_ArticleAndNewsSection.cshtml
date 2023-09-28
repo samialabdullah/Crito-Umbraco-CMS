@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+
+ 
+        @{
+        	var selection = Umbraco.Content(Guid.Parse("7d6ff543-667d-4e48-b283-acb865060866"))
+            .ChildrenOfType("Pages")
+            .Where(x => x.IsVisible())
+            .OrderByDescending(x => x.CreateDate).Take(3);
+        }
+    
+        <section class="article-section">
+        <div class="container">
+            <div class="section-title">@Model.Value("articleAndNewsSectionTitle")</div>
+            <div class="browse-news">
+                <h2>@Model.Value("articleAndNewsSectionHeading")</h2>
+                <a class="btn-outline-dark" href="@Model.Value("articleAndNewsSectionButtonUrl")">@Model.Value("articleAndNewsSectionButtonText") <i class="fa-solid fa-arrow-up-right"></i></a>
+            </div>
+            <div class="articles">
+                
+                
+            	@foreach (var item in selection)
+            	{
+            	   var url = item.Url();
+                   var date = item.CreateDate;
+                   var image = item.Value<IPublishedContent>("newsImage");
+                   var category = item.Value("newsCategory");
+                   var title = item.Name();
+                   var preamble = item.Value("newsPreamble");
+            	
+            	
+                    <a href="@url" class="article">
+                        <div class="article-date">
+                            <div class="day">@date.ToString("dd")</div>
+                            <div class="month">@date.ToString("MMM")</div>
+                        </div>
+                        <img src="@image?.Url()" alt="">
+                        <p class="category">@category</p>
+                        <h5>@title</h5>
+                        <p>@preamble</p>
+                    </a>
+            	
+            	}
+   
+            </div>
+            <div class="dot-circles">
+                <div class="dot-circle active"></div>
+                <div class="dot-circle"></div> 
+                <div class="dot-circle"></div> 
+                <div class="dot-circle"></div> 
+                <div class="dot-circle"></div>
+            </div>
+        </div>
+    </section>
+    
+    
+    

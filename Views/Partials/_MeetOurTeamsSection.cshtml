@@ -1,1 +1,24 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using Umbraco.Cms.Core.Models
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">@Model.Value("meetOurTeamSectionTitle")</div>
+            <div class="browse-team">
+                <h2>@Model.Value("meetOurTeamSectionHeading")</h2>
+                <a class="btn-outline-dark" href="@Model.Value("meetOurTeamSectionButtonUrl")">@Model.Value("meetOurTeamSectionButtonText") <i class="fa-solid fa-arrow-up-right"></i></a>
+            </div>
+            <div class="team-members">
+                @Html.GetBlockListHtml(Model.MeetOurTeam)
+            </div>
+            <div class="dot-circles">
+                <div class="dot-circle active"></div>
+                <div class="dot-circle"></div>
+                <div class="dot-circle"></div>
+                <div class="dot-circle"></div>
+                <div class="dot-circle"></div>
+            </div>
+        </div>
+    </section>

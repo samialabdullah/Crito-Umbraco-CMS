@@ -1,0 +1,30 @@
+﻿
+
+
+
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
+
+
+
+
+
+
+
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.MeetOurTeam)Model.Content;
+}
+
+
+<div class="member">
+    
+    
+
+    <img src="@content.Value("meetOurTeamImage")" alt="">
+
+    <h5>@content.Value("meetOurTeamTitle")</h5>
+    <p>@content.Value("meetOurTeamDescription")</p>
+</div>
