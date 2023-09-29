@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<section class="contactinfo-section">
+    <div class="container">
+        <div class="infobox">
+            <div class="black-circle"><i class="fa-sharp fa-regular fa-location-dot"></i></div>
+            <h5>Visit us</h5>
+            <div class="info">
+                <p>@Model.Value("contactInformationStreetName")</p>
+                <p>@Model.Value("contactInformationPostalCode") @Model.Value("contactInformationCity")</p>
+            </div>
+        </div>
+        <div class="infobox">
+            <div class="black-circle"><i class="fa-regular fa-phone-volume"></i></div>
+            <h5>Call us</h5>
+            <div class="info">
+                <p>@Model.Value("contactInformationPhoneNumber1")</p>
+                <p>@Model.Value("contactInformationPhoneNumber2")</p>
+            </div>
+        </div>
+        <div class="infobox">
+            <div class="black-circle"><i class="fa-regular fa-envelope"></i></div>
+            <h5>Email us</h5>
+            <div class="info">
+                <p>@Model.Value("contactInformationEmail1")</p>
+                <p>@Model.Value("contactInformationEmail2")</p>
+            </div>
+        </div>
+    </div>
+</section>
