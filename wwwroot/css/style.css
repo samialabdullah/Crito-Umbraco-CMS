@@ -671,28 +671,28 @@ header {
   font-weight: 700;
   margin-bottom: 60px;
 }
-.testimonial-section .container .section-border .testimonials {
+.testimonial-section .container .section-border .testimonials .umb-block-list {
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 100px;
   margin-bottom: 40px;
 }
-.testimonial-section .container .section-border .testimonials .testimonial {
+.testimonial-section .container .section-border .testimonials .umb-block-list .testimonial {
   text-align: left;
 }
-.testimonial-section .container .section-border .testimonials .testimonial .rating {
+.testimonial-section .container .section-border .testimonials .umb-block-list .testimonial .rating {
   margin: 20px 0;
   color: #F94D1C;
 }
-.testimonial-section .container .section-border .testimonials .testimonial .writer {
+.testimonial-section .container .section-border .testimonials .umb-block-list .testimonial .writer {
   text-align: left;
   align-items: center;
   display: grid;
   grid-template-columns: 90px 1fr;
   grid-template-areas: "img name" "img position";
 }
-.testimonial-section .container .section-border .testimonials .testimonial .writer img {
+.testimonial-section .container .section-border .testimonials .umb-block-list .testimonial .writer img {
   grid-area: img;
   border-radius: 50%;
   height: 70px;
@@ -701,14 +701,14 @@ header {
      object-fit: cover;
   margin-top: 15px;
 }
-.testimonial-section .container .section-border .testimonials .testimonial .writer h5 {
+.testimonial-section .container .section-border .testimonials .umb-block-list .testimonial .writer h5 {
   grid-area: name;
   font-family: "DM Sans", sans-serif;
   font-size: 22px;
   font-weight: 700;
   margin: 30px 0 0 0;
 }
-.testimonial-section .container .section-border .testimonials .testimonial .writer P {
+.testimonial-section .container .section-border .testimonials .umb-block-list .testimonial .writer P {
   grid-area: position;
   font-family: "Inter", snas-serif;
   font-size: 16px;

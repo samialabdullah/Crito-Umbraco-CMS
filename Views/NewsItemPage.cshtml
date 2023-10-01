@@ -27,10 +27,7 @@
             <div class="content">
                 <img class="article-image" src="@image.Url()" alt="">
                
-               
                  @Model.Value("newsContent")
-
-                
              
                 <div class="tags">
                     
@@ -48,8 +45,6 @@
             </aside>
         </div>
     </div>   
-    
 </section>
 
 @await Html.PartialAsync("_ArticleAndNewsSection", Model)
-
