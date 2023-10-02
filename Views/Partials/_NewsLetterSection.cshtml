@@ -1,10 +1,15 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
 
 
 <section class="newsletter-section">
-    <img class="background-wavy-lines-right" src="images/background-wavy-lines.svg" alt="">
+    
+    <img class="background-wavy-lines-right" src="~/images/background-effects/background-wavy-lines.svg" alt="">
+
     <div class="container">
-        <h2>Get News Updates By Signup</h2>
+        <h2>@Model.Value("newsLetterSectionTitle")</h2>
+        
         <form method="post" action="subscribe.php">
             <input type="email" placeholder="username@domain.com">
             <button class="btn-theme">Subscribe <i class="fa-solid fa-arrow-up-right"></i></button>
