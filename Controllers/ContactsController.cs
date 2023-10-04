@@ -14,6 +14,46 @@ namespace Crito.Controllers
 {
     public class ContactsController : SurfaceController
     {
+
+
+
+
+        private readonly ContactFormService _contactFormService;
+
+        public ContactsController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, ContactFormService contactFormService) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+        {
+            _contactFormService = contactFormService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewContact(ContactForm contactForm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return CurrentUmbracoPage();
+            }
+
+            await _contactFormService.AddContactFormsAsync(contactForm);
+            return RedirectToCurrentUmbracoPage();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
         public ContactsController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
         {
         }
@@ -36,6 +76,6 @@ namespace Crito.Controllers
 
             return LocalRedirect(contactForm.RedirectUrl ?? "/");
 
-        }
+        }*/
     }
 }

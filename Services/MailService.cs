@@ -1,4 +1,4 @@
-﻿using MailKit.Security;
+﻿/*using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
 using System.Diagnostics;
@@ -26,7 +26,7 @@ public class MailService : IDisposable
         _client = new MailKit.Net.Smtp.SmtpClient();
     }
 
-    public async Task SendAsync(string to,  string subject, string body)
+    public async Task SendAsync(string to, string subject, string body)
     {
         try
         {
@@ -36,7 +36,7 @@ public class MailService : IDisposable
             email.Subject = subject;
             email.Body = new TextPart(TextFormat.Html) { Text = body };
 
-         
+
             await _client.ConnectAsync(_smtp, _port, SecureSocketOptions.StartTls);
             await _client.AuthenticateAsync(_username, _password);
 
@@ -55,11 +55,11 @@ public class MailService : IDisposable
     }
 
 
-    protected virtual void Dispose(bool disposing) 
+    protected virtual void Dispose(bool disposing)
     {
         if (disposing)
             _client.DisconnectAsync(true).ConfigureAwait(false);
-        
-            
+
+
     }
-}
+}*/

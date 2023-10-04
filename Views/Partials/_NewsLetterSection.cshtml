@@ -10,8 +10,10 @@
     <div class="container">
         <h2>@Model.Value("newsLetterSectionTitle")</h2>
         
-        <form method="post" action="subscribe.php">
-            <input type="email" placeholder="username@domain.com">
+        <form asp-controller="" asp-action="" method="post" noValidate>
+            <div asp-validation-summary="ModelOnly"></div>
+            
+            <input  type="email" placeholder="username@domain.com">
             <button class="btn-theme">Subscribe <i class="fa-solid fa-arrow-up-right"></i></button>
         </form>
     </div>
