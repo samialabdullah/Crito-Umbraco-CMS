@@ -13,17 +13,46 @@ namespace Crito.Services
         }
 
 
-        public async Task AddContactFormsAsync(ContactForm form)
-        {
-            var newContact = new ContactFormEntity
-            {
-                Name = form.Name,
-                Email = form.Email,
-                Message = form.Message,
-            };
 
-            _context.Contact.Add(newContact);
-            await _context.SaveChangesAsync();
+        public async Task<bool> AddContactFormsAsync(ContactForm form)
+        {
+            try
+            {
+                _context.Contact.Add(new ContactFormEntity
+                {
+                    Name = form.Name,
+                    Email = form.Email,
+                    Message = form.Message,
+                });
+
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
+
+
+
+
+
+
+            /*public async Task AddContactFormsAsync(ContactForm form)
+            {
+                var newContact = new ContactFormEntity
+                {
+                    Name = form.Name,
+                    Email = form.Email,
+                    Message = form.Message,
+                };
+
+                _context.Contact.Add(newContact);
+                await _context.SaveChangesAsync();
+            }*/
         }
     }
 }
