@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Crito.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231004110839_init")]
+    [Migration("20231007121646_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -35,6 +35,16 @@ namespace Crito.Migrations
                     b.HasKey("Email");
 
                     b.ToTable("Contact");
+                });
+
+            modelBuilder.Entity("Crito.Models.SubscriberEntity", b =>
+                {
+                    b.Property<string>("SubscribersEmail")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("SubscribersEmail");
+
+                    b.ToTable("Subscribers");
                 });
 #pragma warning restore 612, 618
         }

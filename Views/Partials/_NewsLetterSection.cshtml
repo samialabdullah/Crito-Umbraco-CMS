@@ -1,6 +1,12 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Crito.Models;
 @using Umbraco.Cms.Core.Models
 
+
+@{
+
+    var newsletter = new NewsletterForm();
+}
 
 
 <section class="newsletter-section">
@@ -9,12 +15,16 @@
 
     <div class="container">
         <h2>@Model.Value("newsLetterSectionTitle")</h2>
-        
+
+        @using (Html.BeginUmbracoForm("Index", "Subscribers", FormMethod.Post))
+        {
         <form asp-controller="" asp-action="" method="post" noValidate>
             <div asp-validation-summary="ModelOnly"></div>
-            
-            <input  type="email" placeholder="username@domain.com">
+
+                <input asp-for="@newsletter.SubscribersEmail" type="email" placeholder="username@domain.com">
             <button class="btn-theme">Subscribe <i class="fa-solid fa-arrow-up-right"></i></button>
         </form>
+
+        }
     </div>
 </section>

@@ -33,6 +33,16 @@ namespace Crito.Migrations
 
                     b.ToTable("Contact");
                 });
+
+            modelBuilder.Entity("Crito.Models.SubscriberEntity", b =>
+                {
+                    b.Property<string>("SubscribersEmail")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("SubscribersEmail");
+
+                    b.ToTable("Subscribers");
+                });
 #pragma warning restore 612, 618
         }
     }
