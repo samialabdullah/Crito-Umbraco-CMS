@@ -25,7 +25,7 @@ namespace Crito.Controllers
             if (!ModelState.IsValid)
             {
                 TempData.Clear();
-                ModelState.AddModelError("", "Something went wrong!");
+                ModelState.AddModelError("", "You must fill your email");
                 return CurrentUmbracoPage();
             }
 
@@ -35,11 +35,11 @@ namespace Crito.Controllers
             if (registered)
             {
                 
-                TempData["SuccessMessage"] = "You have now signed up to our newsletter!";
+                TempData["SuccessMessage"] = "Your info has been save, thanks";
                 ModelState.Clear();
             }
             else
-                TempData["AlreadyRegisteredMessage"] = "Something went wrong!";
+                TempData["AlreadyRegisteredMessage"] = "Something was wrong, please try to write agine";
 
 
             return CurrentUmbracoPage();

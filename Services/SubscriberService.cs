@@ -7,13 +7,10 @@ namespace Crito.Services
     public class SubscriberService
     {
         private readonly DataContext _context;
-
         public SubscriberService(DataContext context) 
         {
             _context = context;
         }
-
-
 
         public async Task<bool> AddSubscriberAsync(NewsletterForm form)
         {
@@ -27,13 +24,11 @@ namespace Crito.Services
                 await _context.SaveChangesAsync();
 
                 return true;
-
             }
             catch
             {
                 return false;
             }
         }
-
     }
 }
